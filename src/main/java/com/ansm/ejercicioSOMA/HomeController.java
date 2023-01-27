@@ -15,28 +15,23 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class HomeController {
-	
-
 
 	@GetMapping("/")
 	public String home(Model model) {
-		
+
 		Cliente cliente = new Cliente();
 		cliente.setClientenombre("Naraly");
-		
-		String mensaje="Hello worldfss";
-		model.addAttribute("mensaje",mensaje);
-		model.addAttribute("cliente",cliente);
+
+		String mensaje = "Hello worldfss";
+		model.addAttribute("mensaje", mensaje);
+		model.addAttribute("cliente", cliente);
 		return "index";
 	}
-	
 
-	@RequestMapping(value = "/guardarCliente",method=RequestMethod.POST) 
-	@ResponseBody 
-	 public String guardarCliente(@RequestBody Cliente cliente){ 
-		return "Hola"; 
+	@RequestMapping(value = "/guardarCliente", method = RequestMethod.POST)
+	@ResponseBody
+	public String guardarCliente(@RequestBody Cliente cliente) {
+		return "Hola";
 	}
-	
-	
 
 }
