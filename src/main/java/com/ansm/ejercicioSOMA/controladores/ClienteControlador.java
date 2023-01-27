@@ -20,8 +20,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ansm.ejercicioSOMA.domain.Cliente;
-import com.ansm.ejercicioSOMA.servicios.ClienteServicio;
-
+import com.ansm.ejercicioSOMA.servicios.IClienteServicio;
+import com.ansm.ejercicioSOMA.utilerias.RenderPagina;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ClienteControlador {
 	
-	private ClienteServicio clientes;
+	private IClienteServicio clientes;
 	
 	@GetMapping("/")
 	public String inicio(Model modelo) {
@@ -40,6 +40,16 @@ public class ClienteControlador {
 		modelo.addAttribute("mensaje", mensaje);
 		modelo.addAttribute("cliente", cliente);
 		return "index";
+	}
+	
+	@GetMapping("listaclientes")
+	public String listaclientes(@RequestParam(name="page",defaultValue = "0")int page, Model modelo) {
+		Pageable pagReq=PageRequest.of(page,2);
+		Page<Cliente> cl=clientes.findAll(pagReq);
+		RenderPagina<Cliente> render=new RenderPagina<>("listaclientes", cl);
+		modelo.addAttribute("cls", cl);
+		modelo.addAttribute("page", render);
+		return "/clientes/listacliente";
 	}
 	
 	@RequestMapping(value = "/guardarCliente", method = RequestMethod.POST)
