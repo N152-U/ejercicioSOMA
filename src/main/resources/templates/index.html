@@ -6,9 +6,37 @@
         <title>Home</title>
         <meta charset="UTF-8">
     </head>
+    <script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+  <script>
+  $.ajax({
+	  
+	    url : '/guardarCliente',
+	    data : { clientenombre : 1 },
+	    type : 'POST',
+	    dataType : 'json',
+	    success : function(json) {
+	        $('<h1/>').text(json).appendTo('body');
+	        $('<div class="content"/>')
+	            .html(json.html).appendTo('body');
+	        console.log("dd");
+	    },
+	    error : function(xhr, status) {
+	        alert('Disculpe, existió un problemaJH');
+	        console.log("error");
+	    },
+	    complete : function(xhr, status) {
+	        alert('Petición realizada');
+	        console.log("complete");
+	    }
+	});
+  </script>
     <body>
 
    <p th:text="${mensaje}"></p>
    <p th:text="${saludo}"></p>
+   <p th:text="${cliente.clientenombre}"></p>
     </body>
 </html>
