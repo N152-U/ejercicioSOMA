@@ -1,46 +1,64 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Home</title>
-        <meta charset="UTF-8">
-    </head>
-    <script
-  src="https://code.jquery.com/jquery-3.6.3.min.js"
-  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-  crossorigin="anonymous"></script>
-  <script>
-  $.ajax({
-	 
-	    url : '/guardarCliente',
-	    data : '{ "clientenombre" : 1 }',
-	    type : 'POST',
-	    dataType : 'json',
-	    headers: { 
-	        'Accept': 'application/json',
-	        'Content-Type': 'application/json' 
-	    },
-	    success : function(data) {
-	        console.log(data);
-	    },
-	    error : function(xhr, status) {
-	        alert('Disculpe, existió un problemaJH');
-	        console.log("error");
-	    },
-	    complete : function(xhr, status) {
-	        alert('Petición realizada');
-	        console.log("complete");
-	    }
-	});
-  </script>
-    <body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Home</title>
+<meta charset="UTF-8">
+</head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+	crossorigin="anonymous"></script>
+<script>
+	$.ajax({
 
-   <p th:text="${mensaje}"></p>
-   <p th:text="${saludo}"></p>
-   <p th:text="${cliente.clientenombre}"></p>
-  <!-- <section th:replace="layout/listadoClientes :: listadoClientes"></section> --> 
-  
-  
-    </body>
+		url : '/guardarCliente',
+		data : '{ "clientenombre" : 1 }',
+		type : 'POST',
+		dataType : 'json',
+		headers : {
+			'Accept' : 'application/json',
+			'Content-Type' : 'application/json'
+		},
+		success : function(data) {
+			console.log(data);
+		},
+		error : function(xhr, status) {
+			alert('Disculpe, existió un problemaJH');
+			console.log("error");
+		},
+		complete : function(xhr, status) {
+			alert('Petición realizada');
+			console.log("complete");
+		}
+	});
+</script>
+<body>
+	<div class="panel">
+		<div style="text-align: center">
+			<br>
+			<h3>Ejercicio EFECTIVALE Andrea Naraly Solis Martinez</h3>
+			<h5 id="date" style="color: red;"></h5>
+			<br>
+		</div>
+		<div class="row " style="padding-right: 30px; padding-left: 30px;">
+
+			<div class="col-sm-1" style="margin: 20px 0px">
+
+				<button class="btn btn-primary" th:text="Clientes"></button>
+			</div>
+			<div class="col-sm-1" style="margin: 20px 0px">
+
+
+				<button class="btn btn-primary" th:text="Consignatarios"></button>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>
