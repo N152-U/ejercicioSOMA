@@ -14,14 +14,15 @@
   $.ajax({
 	  
 	    url : '/guardarCliente',
-	    data : { clientenombre : 1 },
+	    data : '{ "clientenombre" : 1 }',
 	    type : 'POST',
 	    dataType : 'json',
-	    success : function(json) {
-	        $('<h1/>').text(json).appendTo('body');
-	        $('<div class="content"/>')
-	            .html(json.html).appendTo('body');
-	        console.log("dd");
+	    headers: { 
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json' 
+	    },
+	    success : function(data) {
+	        console.log(data);
 	    },
 	    error : function(xhr, status) {
 	        alert('Disculpe, existió un problemaJH');
