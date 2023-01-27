@@ -4,9 +4,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,11 +23,13 @@ import lombok.Data;
 @Table(name = "consignatario")
 public class Consignatario {
 
+	
+	@JoinColumn(name="clienteid",referencedColumnName = "clienteid")
+	@OneToOne(fetch=FetchType.EAGER)
+	private Cliente clienteid;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="clienteid")
-	private Long clienteid;
-	
 	@Column(name="consignatarioid")
 	private Integer consignatarioid;
 	
@@ -44,13 +51,16 @@ public class Consignatario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getClienteid() {
+
+	public Cliente getClienteid() {
 		return clienteid;
 	}
 
-	public void setClienteid(Long clienteid) {
+
+	public void setClienteid(Cliente clienteid) {
 		this.clienteid = clienteid;
 	}
+
 
 	public Integer getConsignatarioid() {
 		return consignatarioid;
