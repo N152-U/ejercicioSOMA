@@ -1,15 +1,48 @@
 package com.ansm.ejercicioSOMA.domain;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "consignatario")
 public class Consignatario {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="clienteid")
 	private Long clienteid;
-	private String consignatarioid;
-	private String consignatarioactivo;
+	
+	@Column(name="consignatarioid")
+	private Integer consignatarioid;
+	
+	@Column(name="consignatarioactivo")
+	private Boolean consignatarioactivo;
+	
+	@Column(name="consignatarionombre")
 	private String consignatarionombre;
-	private String consignatariofechacreacion;
+	
+	@Column(name="consignatariofechacreacion")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date consignatariofechacreacion;
+
+	@Column(name="consignatariofechamodificacion")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date consignatariofechamodificacion;
+	
+	public Consignatario() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Long getClienteid() {
 		return clienteid;
@@ -19,19 +52,19 @@ public class Consignatario {
 		this.clienteid = clienteid;
 	}
 
-	public String getConsignatarioid() {
+	public Integer getConsignatarioid() {
 		return consignatarioid;
 	}
 
-	public void setConsignatarioid(String consignatarioid) {
+	public void setConsignatarioid(Integer consignatarioid) {
 		this.consignatarioid = consignatarioid;
 	}
 
-	public String getConsignatarioactivo() {
+	public Boolean getConsignatarioactivo() {
 		return consignatarioactivo;
 	}
 
-	public void setConsignatarioactivo(String consignatarioactivo) {
+	public void setConsignatarioactivo(Boolean consignatarioactivo) {
 		this.consignatarioactivo = consignatarioactivo;
 	}
 
@@ -43,21 +76,21 @@ public class Consignatario {
 		this.consignatarionombre = consignatarionombre;
 	}
 
-	public String getConsignatariofechacreacion() {
+	public Date getConsignatariofechacreacion() {
 		return consignatariofechacreacion;
 	}
 
-	public void setConsignatariofechacreacion(String consignatariofechacreacion) {
+	public void setConsignatariofechacreacion(Date consignatariofechacreacion) {
 		this.consignatariofechacreacion = consignatariofechacreacion;
 	}
 
-	public String getConsignatariofechamodificacion() {
+	public Date getConsignatariofechamodificacion() {
 		return consignatariofechamodificacion;
 	}
 
-	public void setConsignatariofechamodificacion(String consignatariofechamodificacion) {
+	public void setConsignatariofechamodificacion(Date consignatariofechamodificacion) {
 		this.consignatariofechamodificacion = consignatariofechamodificacion;
 	}
-
-	private String consignatariofechamodificacion;
+	
+	
 }
