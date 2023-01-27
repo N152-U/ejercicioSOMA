@@ -42,20 +42,19 @@
 	<div class="panel">
 		<div style="text-align: center">
 			<br>
-			<h3>Ejercicio EFECTIVALE Andrea Naraly Solis Martinez</h3>
+			<!--   <h3>Ejercicio EFECTIVALE Andrea Naraly Solis Martinez</h3>-->
 			<h5 id="date" style="color: red;"></h5>
 			<br>
 		</div>
 		<div class="row " style="padding-right: 30px; padding-left: 30px;">
 
 			<div class="col-sm-1" style="margin: 20px 0px">
-
-				<button class="btn btn-primary" th:text="Clientes"></button>
+				<a class="btn btn-primary" th:text="Clientes"
+					th:href="@{listadoclientes}"></a>
 			</div>
 			<div class="col-sm-1" style="margin: 20px 0px">
-
-
-				<button class="btn btn-primary" th:text="Consignatarios"></button>
+				<a class="btn btn-primary" th:text="Consignatarios"
+					th:href="@{listadoConsignatarios}"></a>
 			</div>
 		</div>
 	</div>

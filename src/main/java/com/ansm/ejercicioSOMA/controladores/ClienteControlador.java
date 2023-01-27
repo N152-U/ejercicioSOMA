@@ -46,7 +46,7 @@ public class ClienteControlador {
 	public String listaclientes(@RequestParam(name="page",defaultValue = "0")int page, Model modelo) {
 		Pageable pagReq=PageRequest.of(page,2);
 		Page<Cliente> cl=clientes.findAll(pagReq);
-		RenderPagina<Cliente> render=new RenderPagina<>("listadoClientes", cl);
+		RenderPagina<Cliente> render=new RenderPagina<>("listaclientes", cl);
 		modelo.addAttribute("cls", cl);
 		modelo.addAttribute("page", render);
 		return "/clientes/listadoClientes";
@@ -56,5 +56,11 @@ public class ClienteControlador {
 	@ResponseBody
 	public String guardarCliente(@RequestBody Cliente cliente) {
 		return "Hola";
+	}
+	
+	@GetMapping("listadoclientes")
+	public String listaclientes(Model modelo) {
+
+		return "clientes/listadoClientes";
 	}
 }
