@@ -58,7 +58,7 @@ public class ClienteControlador {
 		return "Hola";
 	}
 	
-	@GetMapping("listadoclientes")
+	@GetMapping("listadoClientes")
 	public String listaclientes(Model modelo) {
 
 		return "clientes/listadoClientes";
