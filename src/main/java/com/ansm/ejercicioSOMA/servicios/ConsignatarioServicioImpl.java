@@ -3,56 +3,35 @@ package com.ansm.ejercicioSOMA.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
-public class ConsignatarioServicioImpl {
-	/*@Autowired
-	private IClienteDao clienteDao;
+import com.ansm.ejercicioSOMA.dao.IConsignatarioDao;
+import com.ansm.ejercicioSOMA.domain.Consignatario;
+
+
+@Service
+public class ConsignatarioServicioImpl implements IConsignatarioServicio {
+	@Autowired
+	private IConsignatarioDao consignatarioDao;
 	
 	@Override
-	@Transactional(readOnly=true)
-	public List<Cliente> findAll() {	
-		return (List<Cliente>) clienteDao.findAll();
+	public List<Consignatario> listadoConsignatario() {
+		
+		return consignatarioDao.listadoConsignatario();
 	}
 
 	@Override
-	@Transactional
-	public void save(Cliente clientes) {
-		clienteDao.save(clientes);
+	public Long creacionConsignatario(String nombreconsignatario) {
+		return consignatarioDao.creacionConsignatario(nombreconsignatario);
 		
 	}
 
 	@Override
-	@Transactional(readOnly=true)
-	public Cliente findOne(Long id) {	
-		return clienteDao.findById(id.intValue()).orElse(null);
-	}
-
-	@Override
-	@Transactional
-	public void delete(Long id) {
-		if(id.intValue()>0) {
-			clienteDao.deleteById(id.intValue());
-		}
+	public void save(Consignatario consignatario) {
+		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public List<Long> findId() {
-		
-		return clienteDao.findId();
-	}
-	
-	@Override
-	public List<Cliente> listadoClientes() {
-		
-		return clienteDao.listadoClientes();
-	}
 
-	@Override
-	public Long creacionCliente(String nombrecliente) {
-		return clienteDao.creacionCliente(nombrecliente);
-		
-	}*/
 
 }

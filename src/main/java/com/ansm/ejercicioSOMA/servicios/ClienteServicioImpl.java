@@ -62,10 +62,6 @@ public class ClienteServicioImpl implements IClienteServicio{
 		
 	}
 	
-//	@Override
-//	@Transactional(readOnly=true)
-//	public Page<Cliente> findAll(Pageable pegeable) {
-//		return clienteDao.findAll(pegeable);
-//	}
+
 
 }
