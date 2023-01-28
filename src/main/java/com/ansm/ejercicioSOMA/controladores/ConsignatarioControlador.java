@@ -26,6 +26,7 @@ public class ConsignatarioControlador {
 	
 	@Autowired
 	private IConsignatarioServicio consignatarios;
+	@Autowired
 	private IClienteServicio clientes;
 	
 	

@@ -17,20 +17,27 @@
 		<h1 class="text-secondary" style="margin-top: 50px;">Nuevo
 			Cliente</h1>
 		<br />
-		 <form   id="form" method="post" >
+		<form id="form" method="post">
 			<table>
 				<tr>
 					<td>Nombre Consignatario:</td>
-					<td>
-					<input class="form-control"
-					type="text"  name='consignatarionombre' id='consignatarionombre'
-					/></td>
+					<td><input class="form-control" type="text"
+						name='consignatarionombre' id='consignatarionombre' /></td>
+				</tr>
+				<tr>
+					<td>Nombre Cliente:</td><td>
+					<select class="js-example-placeholder-single js-states form-control" name="cliente" id="cliente">
+						<option th:each="cliente: ${listado}"
+							th:value="${cliente.clienteid}"
+							th:text="${cliente.clientenombre}"></option>
+
+					</select></td>
 				</tr>
 				<tr>
 					<td><input type="submit" /></td>
 				</tr>
 			</table>
-			
+
 			<div class="col-sm-1" style="margin: 20px 0px">
 				<a class="btn btn-danger" th:text="Regresar" th:href="@{/}"></a>
 			</div>
@@ -38,7 +45,7 @@
 		</form>
 	</div>
 </body>
-<script  type="text/javascript">
+<script type="text/javascript">
 $(function() {
 	
 	
