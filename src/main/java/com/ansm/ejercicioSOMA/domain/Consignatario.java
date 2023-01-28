@@ -23,44 +23,40 @@ import lombok.Data;
 @Table(name = "consignatario")
 public class Consignatario {
 
-	
-	@JoinColumn(name="clienteid",referencedColumnName = "clienteid")
-	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "clienteid", referencedColumnName = "clienteid")
+	@OneToOne(fetch = FetchType.EAGER)
 	private Cliente clienteid;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="consignatarioid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "consignatarioid")
 	private Integer consignatarioid;
-	
-	@Column(name="consignatarioactivo")
+
+	@Column(name = "consignatarioactivo")
 	private Boolean consignatarioactivo;
-	
-	@Column(name="consignatarionombre")
+
+	@Column(name = "consignatarionombre")
 	private String consignatarionombre;
-	
-	@Column(name="consignatariofechacreacion")
+
+	@Column(name = "consignatariofechacreacion")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date consignatariofechacreacion;
 
-	@Column(name="consignatariofechamodificacion")
+	@Column(name = "consignatariofechamodificacion")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date consignatariofechamodificacion;
-	
+
 	public Consignatario() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 	public Cliente getClienteid() {
 		return clienteid;
 	}
 
-
 	public void setClienteid(Cliente clienteid) {
 		this.clienteid = clienteid;
 	}
-
 
 	public Integer getConsignatarioid() {
 		return consignatarioid;
@@ -101,6 +97,5 @@ public class Consignatario {
 	public void setConsignatariofechamodificacion(Date consignatariofechamodificacion) {
 		this.consignatariofechamodificacion = consignatariofechamodificacion;
 	}
-	
-	
+
 }
