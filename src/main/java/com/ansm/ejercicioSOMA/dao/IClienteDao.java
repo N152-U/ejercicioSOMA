@@ -20,5 +20,8 @@ public interface IClienteDao extends JpaRepository<Cliente, Integer>{
 	@Query(value="SELECT * FROM listadoClientesF();", nativeQuery = true)
 	List<Cliente> listadoClientes();
 	
+	@Query(value="CALL crearCliente(?1);", nativeQuery = true)
+	Long creacionCliente(String nombrecliente);
+	
 	
 }

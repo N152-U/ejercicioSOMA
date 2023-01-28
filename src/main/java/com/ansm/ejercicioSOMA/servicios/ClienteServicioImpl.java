@@ -57,6 +57,12 @@ public class ClienteServicioImpl implements IClienteServicio{
 		
 		return clienteDao.listadoClientes();
 	}
+
+	@Override
+	public Long creacionCliente(String nombrecliente) {
+		return clienteDao.creacionCliente(nombrecliente);
+		
+	}
 	
 //	@Override
 //	@Transactional(readOnly=true)

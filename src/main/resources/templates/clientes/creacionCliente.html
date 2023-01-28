@@ -10,59 +10,27 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"
 	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
 	crossorigin="anonymous"></script>
-<script type="text/javascript">
-function validateMyForm(event)
-{
-	var nombrecliente = $("#nombre").val();
-	
-	
-	console.log(nombrecliente);
-  if(nombrecliente.length <= 35)
-  { 
-	  alert("Nombre validado");
-	  
-	  $.ajax({
 
-			url : '/guardarCliente',
-			data : `{ "clientenombre" : ${nombrecliente} }`,
-			type : 'POST',
-			dataType : 'json',
-			headers : {
-				'Accept' : 'application/json',
-				'Content-Type' : 'application/json'
-			},
-			success : function(data) {
-				console.log(data);
-			},
-			error : function(xhr, status) {
-				alert('Disculpe, existió un problema');
-				console.log("error");
-			},
-			complete : function(xhr, status) {
-				alert('Petición realizada');
-				console.log("complete");
-			}
-		});
-	  return true;
-  }else{
-	  alert("El nombre no debe ser mayor a 35 caracteres");
-	  return false;
-  }
-}
-</script>
 <body>
 
 	<div class="container">
 		<h1 class="text-secondary" style="margin-top: 50px;">Nuevo
 			Cliente</h1>
 		<br />
-		 <form   id="form" method="post" onsubmit="event.preventDefault(); validateMyForm(event);" >
+		 <form   id="form" method="post" >
 			<table>
 				<tr>
 					<td>Nombre:</td>
 					<td>
 					<input class="form-control"
-					type="text"  name='nombre' id='nombre'
+					type="text"  name='clientenombre' id='clientenombre'
+					/></td>
+				</tr>
+				<tr>
+					<td>Apellido:</td>
+					<td>
+					<input class="form-control"
+					type="text"  name='apellido' id='apellido'
 					/></td>
 				</tr>
 				<tr>
@@ -77,4 +45,88 @@ function validateMyForm(event)
 		</form>
 	</div>
 </body>
+<script  type="text/javascript">
+$(function() {
+	
+	
+	const validate=(form)=>
+	{
+		let valid=false;
+		for(let i=0; i<form.length; i++ )
+		  {
+		  console.log(i)
+		  //Validacion nombre
+		  	if(form[i]["name"]=="clientenombre")
+		  		{
+		  			let maxima_longitud_nombre=35;
+		  			let minima_longitud_nombre=1;
+				  		if( form[i]["value"].length <= maxima_longitud_nombre && form[i]["value"].length>minima_longitud_nombre &&  typeof(form[i]["value"])=="string")
+				  	  {
+				  			valid =true;
+				  	  }
+				  		else
+				  			{
+				  				
+				  			  alert(`El nombre debe ser mayor a ${minima_longitud_nombre} y menor a ${maxima_longitud_nombre} caracteres`);
+					  		  valid= false;
+				  			}
+		  		}
+		  }
+		return valid;
+	}
+	
+	
+	$('form').submit(function (evt) {
+	    evt.preventDefault();
+	    //window.history.back();
+		
+		  const form=$( this ).serializeArray();
+		
+		  console.log("formulario",form)
+		 
+		  if(validate(form))
+			  {
+				  alert("El formulario es valido");
+				  let data={}
+				for(let i=0; i<form.length; i++)
+					{
+						data[form[i]["name"]]=form[i]["value"]
+					}
+			  
+			  
+			  $.ajax({
+
+					url : '/guardarCliente',
+					data : JSON.stringify(data),
+					type : 'POST',
+					dataType : 'json',
+					headers : {
+						'Accept' : 'application/json',
+						'Content-Type' : 'application/json'
+					},
+					success : function(data) {
+						console.log(data);
+					},
+					statusCode: {
+			            400: function (e) {
+			            	alert('Petición no realizada');
+			            }
+			        },
+					complete : function(xhr, status) {
+						alert('Petición realizada');
+						console.log("complete");
+					}
+				});
+			  
+			  }
+			
+			
+			
+		  
+	});
+});
+
+
+
+</script>
 </html>

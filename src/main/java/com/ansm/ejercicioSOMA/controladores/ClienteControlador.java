@@ -54,7 +54,9 @@ public class ClienteControlador {
 	@RequestMapping(value = "/guardarCliente", method = RequestMethod.POST)
 	@ResponseBody
 	public String guardarCliente(@RequestBody Cliente cliente) {
-		return "Hola";
+		
+		 clientes.creacionCliente(cliente.getClientenombre());
+		return "Cliente creado";
 	}
 	
 	@GetMapping("listadoClientes")
@@ -68,9 +70,6 @@ public class ClienteControlador {
 	
 	@GetMapping("nuevoCliente")
 	public String creacionCliente(Model modelo) {
-		//List<Cliente> listado = new ArrayList<Cliente>();
-		//listado=	clientes.listadoClientes();
-		//modelo.addAttribute("listado", listado);
 
 		return "clientes/creacionCliente";
 	}

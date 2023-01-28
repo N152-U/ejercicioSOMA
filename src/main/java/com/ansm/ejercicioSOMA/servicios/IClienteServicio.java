@@ -15,5 +15,6 @@ public interface IClienteServicio {
 	public void delete(Long id);
 	public List<Long> findId();
 	List<Cliente> listadoClientes();
+	Long creacionCliente(String nombrecliente);
 }
 
