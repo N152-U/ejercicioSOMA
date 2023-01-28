@@ -2,11 +2,9 @@ package com.ansm.ejercicioSOMA.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.query.Procedure;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import com.ansm.ejercicioSOMA.domain.Cliente;
@@ -20,8 +18,9 @@ public interface IClienteDao extends JpaRepository<Cliente, Integer>{
 	@Query(value="SELECT * FROM listadoClientesF();", nativeQuery = true)
 	List<Cliente> listadoClientes();
 	
-	@Query(value="CALL crearCliente(?1);", nativeQuery = true)
-	Long creacionCliente(String nombrecliente);
+	@Query(value="CALL crearCliente(:nombrecliente);", nativeQuery = true)
+	Long creacionCliente(@Param("nombrecliente") String nombrecliente);
+	
 	
 	
 }

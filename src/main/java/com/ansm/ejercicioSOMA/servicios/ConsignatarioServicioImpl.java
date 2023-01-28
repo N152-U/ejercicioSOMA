@@ -3,17 +3,10 @@ package com.ansm.ejercicioSOMA.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ansm.ejercicioSOMA.dao.IClienteDao;
-import com.ansm.ejercicioSOMA.domain.Cliente;
-
-
-
-@Service
-public class ClienteServicioImpl implements IClienteServicio{
-	@Autowired
+public class ConsignatarioServicioImpl {
+	/*@Autowired
 	private IClienteDao clienteDao;
 	
 	@Override
@@ -60,12 +53,6 @@ public class ClienteServicioImpl implements IClienteServicio{
 	public Long creacionCliente(String nombrecliente) {
 		return clienteDao.creacionCliente(nombrecliente);
 		
-	}
-	
-//	@Override
-//	@Transactional(readOnly=true)
-//	public Page<Cliente> findAll(Pageable pegeable) {
-//		return clienteDao.findAll(pegeable);
-//	}
+	}*/
 
 }
