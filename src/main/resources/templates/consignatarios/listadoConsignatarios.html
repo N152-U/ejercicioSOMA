@@ -13,7 +13,7 @@
 		<div class="row " style="padding-right: 30px; padding-left: 30px;">
 			<div class="col-sm-2" style="margin: 20px 0px">
 				<a class="btn btn-success" th:text="${'Nuevo Consignatario'}"
-					th:href="@{/}"></a>
+					th:href="@{/nuevoConsignatario}"></a>
 			</div>
 			<div class="col-sm-1" style="margin: 20px 0px">
 				<a class="btn btn-danger" th:text="Regresar" th:href="@{/}"></a>
@@ -25,30 +25,20 @@
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">First</th>
-					<th scope="col">Last</th>
-					<th scope="col">Handle</th>
+					<th scope="col">Id del cliente</th>
+					<th scope="col">Nombre del Cliente</th>
+					<th scope="col">Id del consignatario</th>
+					<th scope="col">Nombre del Consignatario</th>
+					<th scope="col">Fecha de creaci&oacute;n del consignatario</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>Larry</td>
-					<td>the Bird</td>
-					<td>@twitter</td>
+				<tr th:each="consignatario: ${listado}">
+					<td th:text="${consignatario.clienteid.getClienteid()}">
+					<td th:text="${consignatario.clienteid.getClientenombre()}">
+					<td th:text="${consignatario.consignatarioid}">
+					<td th:text="${consignatario.consignatarionombre}">
+					<td th:text="${consignatario.consignatariofechacreacion}">
 				</tr>
 			</tbody>
 		</table>

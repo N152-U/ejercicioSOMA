@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.ansm.ejercicioSOMA.domain.Cliente;
 import com.ansm.ejercicioSOMA.domain.Consignatario;
+import com.ansm.ejercicioSOMA.servicios.IClienteServicio;
 import com.ansm.ejercicioSOMA.servicios.IConsignatarioServicio;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +26,7 @@ public class ConsignatarioControlador {
 	
 	@Autowired
 	private IConsignatarioServicio consignatarios;
+	private IClienteServicio clientes;
 	
 	
 	@GetMapping("listadoConsignatarios")
@@ -32,4 +36,23 @@ public class ConsignatarioControlador {
 		modelo.addAttribute("listado", listado);
 		return "consignatarios/listadoConsignatarios";
 	}
+	
+	@GetMapping("nuevoConsignatario")
+	public String creacionConsignatario(Model modelo) {
+		List<Cliente> listado = new ArrayList<Cliente>();
+		listado=	clientes.listadoClientes();
+		modelo.addAttribute("listado", listado);
+		return "consignatarios/creacionConsignatario";
+	}
+	
+	@RequestMapping(value = "/guardarConsignatario", method = RequestMethod.POST)
+	@ResponseBody
+	public String guardarConsignatario(@RequestBody Consignatario consignatario) {
+		
+		consignatarios.creacionConsignatario(consignatario.getConsignatarionombre());
+		return "Cliente creado";
+	}
+	
+
+	
 }
