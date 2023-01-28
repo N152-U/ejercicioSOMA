@@ -9,9 +9,11 @@ import com.ansm.ejercicioSOMA.domain.Cliente;
 
 public interface IClienteServicio {
 	public List<Cliente> findAll();
-	public Page<Cliente> findAll(Pageable pegeable);
+	//public Page<Cliente> findAll(Pageable pegeable);
 	public void save(Cliente clientes);
 	public Cliente findOne(Long id);
 	public void delete(Long id);
+	public List<Long> findId();
+	List<Cliente> listadoClientes();
 }
 

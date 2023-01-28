@@ -45,11 +45,23 @@ public class ClienteServicioImpl implements IClienteServicio{
 		}
 		
 	}
+
+	@Override
+	public List<Long> findId() {
+		
+		return clienteDao.findId();
+	}
 	
 	@Override
-	@Transactional(readOnly=true)
-	public Page<Cliente> findAll(Pageable pegeable) {
-		return clienteDao.findAll(pegeable);
+	public List<Cliente> listadoClientes() {
+		
+		return clienteDao.listadoClientes();
 	}
+	
+//	@Override
+//	@Transactional(readOnly=true)
+//	public Page<Cliente> findAll(Pageable pegeable) {
+//		return clienteDao.findAll(pegeable);
+//	}
 
 }

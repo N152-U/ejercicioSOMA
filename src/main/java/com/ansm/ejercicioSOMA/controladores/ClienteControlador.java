@@ -1,5 +1,15 @@
 package com.ansm.ejercicioSOMA.controladores;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,36 +32,25 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ansm.ejercicioSOMA.domain.Cliente;
 import com.ansm.ejercicioSOMA.servicios.IClienteServicio;
 import com.ansm.ejercicioSOMA.utilerias.RenderPagina;
+
 import lombok.extern.slf4j.Slf4j;
 
 
 @Controller
 @Slf4j
 public class ClienteControlador {
-	
+//	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Cliente");
+//	EntityManager em = emf.createEntityManager();
+
+	@Autowired
 	private IClienteServicio clientes;
 	
 	@GetMapping("/")
 	public String inicio(Model modelo) {
-		Cliente cliente = new Cliente();
-		cliente.setClientenombre("Naraly");
-
-		String mensaje = "Hello worldfss";
-		modelo.addAttribute("mensaje", mensaje);
-		modelo.addAttribute("cliente", cliente);
 		return "index";
 	}
 	
-	@GetMapping("listaclientes")
-	public String listaclientes(@RequestParam(name="page",defaultValue = "0")int page, Model modelo) {
-		Pageable pagReq=PageRequest.of(page,2);
-		Page<Cliente> cl=clientes.findAll(pagReq);
-		RenderPagina<Cliente> render=new RenderPagina<>("listaclientes", cl);
-		modelo.addAttribute("cls", cl);
-		modelo.addAttribute("page", render);
-		return "/clientes/listadoClientes";
-	}
-	
+
 	@RequestMapping(value = "/guardarCliente", method = RequestMethod.POST)
 	@ResponseBody
 	public String guardarCliente(@RequestBody Cliente cliente) {
@@ -60,7 +59,19 @@ public class ClienteControlador {
 	
 	@GetMapping("listadoClientes")
 	public String listaclientes(Model modelo) {
+		List<Cliente> listado = new ArrayList<Cliente>();
+		listado=	clientes.listadoClientes();
+		modelo.addAttribute("listado", listado);
 
 		return "clientes/listadoClientes";
+	}
+	
+	@GetMapping("nuevoCliente")
+	public String creacionCliente(Model modelo) {
+		//List<Cliente> listado = new ArrayList<Cliente>();
+		//listado=	clientes.listadoClientes();
+		//modelo.addAttribute("listado", listado);
+
+		return "clientes/creacionCliente";
 	}
 }

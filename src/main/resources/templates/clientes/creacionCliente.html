@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="/css/w3.css" th:href="@{/css/w3.css}">
+<link rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" href="/css/all.css" th:href="@{/css/all.css}">
+
+</head>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+function validateMyForm(event)
+{
+	var nombrecliente = $("#nombre").val();
+	
+	
+	console.log(nombrecliente);
+  if(nombrecliente.length <= 35)
+  { 
+	  alert("Nombre validado");
+	  
+	  $.ajax({
+
+			url : '/guardarCliente',
+			data : `{ "clientenombre" : ${nombrecliente} }`,
+			type : 'POST',
+			dataType : 'json',
+			headers : {
+				'Accept' : 'application/json',
+				'Content-Type' : 'application/json'
+			},
+			success : function(data) {
+				console.log(data);
+			},
+			error : function(xhr, status) {
+				alert('Disculpe, existió un problema');
+				console.log("error");
+			},
+			complete : function(xhr, status) {
+				alert('Petición realizada');
+				console.log("complete");
+			}
+		});
+	  return true;
+  }else{
+	  alert("El nombre no debe ser mayor a 35 caracteres");
+	  return false;
+  }
+}
+</script>
+<body>
+
+	<div class="container">
+		<h1 class="text-secondary" style="margin-top: 50px;">Nuevo
+			Cliente</h1>
+		<br />
+		 <form   id="form" method="post" onsubmit="event.preventDefault(); validateMyForm(event);" >
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td>
+					<input class="form-control"
+					type="text"  name='nombre' id='nombre'
+					/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" /></td>
+				</tr>
+			</table>
+			
+			<div class="col-sm-1" style="margin: 20px 0px">
+				<a class="btn btn-danger" th:text="Regresar" th:href="@{/}"></a>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>

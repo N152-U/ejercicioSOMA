@@ -14,30 +14,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"
 	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
 	crossorigin="anonymous"></script>
-<script>
-	$.ajax({
 
-		url : '/guardarCliente',
-		data : '{ "clientenombre" : 1 }',
-		type : 'POST',
-		dataType : 'json',
-		headers : {
-			'Accept' : 'application/json',
-			'Content-Type' : 'application/json'
-		},
-		success : function(data) {
-			console.log(data);
-		},
-		error : function(xhr, status) {
-			alert('Disculpe, existió un problemaJH');
-			console.log("error");
-		},
-		complete : function(xhr, status) {
-			alert('Petición realizada');
-			console.log("complete");
-		}
-	});
-</script>
 <body>
 	<div class="panel">
 		<div style="text-align: center">
