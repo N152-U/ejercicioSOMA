@@ -15,6 +15,6 @@ public interface IConsignatarioDao extends JpaRepository<Consignatario, Integer>
 	@Query(value="SELECT * FROM listadoConsignatariosF();", nativeQuery = true)
 	List<Consignatario> listadoConsignatario();
 	
-	@Query(value="CALL crearConsignatario(:nombreconsignatario);", nativeQuery = true)
-	Long creacionConsignatario(@Param("nombreconsignatario") String nombreconsignatario);
+	@Query(value="CALL crearConsignatario(:clienteid,:nombreconsignatario);", nativeQuery = true)
+	Long creacionConsignatario(@Param("clienteid") Long clienteid ,@Param("nombreconsignatario") String nombreconsignatario);
 }

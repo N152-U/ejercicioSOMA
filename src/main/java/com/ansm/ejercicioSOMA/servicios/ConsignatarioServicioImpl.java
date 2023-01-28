@@ -21,8 +21,8 @@ public class ConsignatarioServicioImpl implements IConsignatarioServicio {
 	}
 
 	@Override
-	public Long creacionConsignatario(String nombreconsignatario) {
-		return consignatarioDao.creacionConsignatario(nombreconsignatario);
+	public Long creacionConsignatario(Long clienteid, String nombreconsignatario) {
+		return consignatarioDao.creacionConsignatario(clienteid,nombreconsignatario);
 		
 	}
 

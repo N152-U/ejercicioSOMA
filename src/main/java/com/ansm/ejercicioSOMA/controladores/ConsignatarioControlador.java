@@ -49,9 +49,9 @@ public class ConsignatarioControlador {
 	@RequestMapping(value = "/guardarConsignatario", method = RequestMethod.POST)
 	@ResponseBody
 	public String guardarConsignatario(@RequestBody Consignatario consignatario) {
-		
-		consignatarios.creacionConsignatario(consignatario.getConsignatarionombre());
-		return "Cliente creado";
+		System.out.println(consignatario);
+		consignatarios.creacionConsignatario(consignatario.getClienteid().getClienteid(),consignatario.getConsignatarionombre());
+		return "Consignatario creado";
 	}
 	
 

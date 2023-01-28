@@ -8,5 +8,5 @@ public interface IConsignatarioServicio {
 	
 	public void save(Consignatario consignatario);
 	List<Consignatario> listadoConsignatario();
-	Long creacionConsignatario(String nombreconsignatario);
+	Long creacionConsignatario(Long clienteid,String nombreconsignatario);
 }
