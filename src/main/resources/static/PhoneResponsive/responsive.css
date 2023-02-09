@@ -1,0 +1,170 @@
+  @media(max-width: 770px){
+     #color-example{
+   	
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    padding: 1em;
+    margin-bottoom:1em; 	
+   }
+   
+   .dropdown-toggle{
+   
+   margin-left: -90%
+   }
+   
+
+   
+/*Contractor y Supervisory*/   
+   .table>thead{
+   display: none;
+   }
+   
+	#contractors-c1::before{
+   content: "Razon social -";
+   font-weight: 800; 
+   }
+   
+	#contractors-c2::before{
+   content: "RFC -";
+   font-weight: 800; 
+   }
+   
+   	#contractors-c3::before{
+   content: "Numero -";
+   font-weight: 800; 
+   }
+   
+   	#contractors-c4::before{
+   content: "Nombre del Responsable -";
+   font-weight: 800; 
+   }
+   
+   	#contractors-c5::before{
+   content: "Telefono -";
+   font-weight: 800; 
+   }
+   
+   	#contractors-c6::before{
+   content: "Telefono Celular -";
+   font-weight: 800; 
+   }
+   
+/* Obras */
+
+	#obras-o1::before{
+   content: "Numero de obra -";
+   font-weight: 800; 
+   }
+   
+	#obras-o2::before{
+   content: "Nombre de obra -";
+   font-weight: 800; 
+   }
+   
+   	#obras-o3::before{
+   content: "Contrato -";
+   font-weight: 800; 
+   }
+   
+   	#obras-o4::before{
+   content: "Ubicacion -";
+   font-weight: 800; 
+   }
+   
+   	#obras-o5::before{
+   content: "Alcaldia -";
+   font-weight: 800; 
+   }
+   
+   	#obras-o6::before{
+   content: "Tipo de obra -";
+   font-weight: 800; 
+   }
+   
+   #obras-o7::before{
+   content: "Ultimo avance -";
+   font-weight: 800; 
+   }
+   
+/*Users*/
+
+	#users-u1::before{
+   content: "Usuario -";
+   font-weight: 800; 
+   }
+   
+	#users-u2::before{
+   content: "Nombre Completo -";
+   font-weight: 800; 
+   }
+   
+   	#users-u3::before{
+   content: "Perfil -";
+   font-weight: 800; 
+   }
+   
+   	#users-u4::before{
+   content: "Activo -";
+   font-weight: 800; 
+   }
+   
+/*investmentProgram*/
+
+	#program-p1::before{
+   content: "Nombre -";
+   font-weight: 800; 
+   }
+   
+	#program-p2::before{
+   content: "Descripcion -";
+   font-weight: 800; 
+   }
+   
+   	#program-p3::before{
+   content: "Activo -";
+   font-weight: 800; 
+   }
+   
+/* worksType */
+
+	#works-w1::before{
+   content: "Nombre -";
+   font-weight: 800; 
+   }
+   
+	#works-w2::before{
+   content: "Iconos -";
+   font-weight: 800; 
+   }
+   
+   	#works-w3::before{
+   content: "Activo -";
+   font-weight: 800; 
+   }
+   
+   	#works-w4::before{
+   content: "Mayores/Menores -";
+   font-weight: 800; 
+   }
+/*Alcaldia*/
+
+   	#alca-a1::before{
+   content: "Nombre -";
+   font-weight: 800; 
+   }
+   
+   	#alca-a2::before{
+   content: "Alcaldia -";
+   font-weight: 800; 
+   }
+
+/*  */
+ 
+  @media(max-width: 770px){
+     #prba {
+   	display:none; 	
+   }
+
+ 
+ }

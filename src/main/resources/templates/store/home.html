@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/plantilla :: head">
+<title>Oxxito</title>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="container"
+		class="effect aside-float aside-bright navbar-fixed footer-fixed mainnav-sm">
+		<header th:replace="layout/plantilla :: #navbar"></header>
+		<div class="boxed">
+			<div id="content-container">
+				<div class="card" style="top: 10px; left: 10px;">
+					<div class="row">
+						<div class="panel col-md-12">
+							<div class="panel">
+								<div class="panel-body">
+									<form method="post">
+										<input type="hidden" name="id" />
+										<div class="row">
+											<br> <span class="d-block p-3 text-white"
+												style="background-color: #726b6b; font-size: 17px; border-radius: 5px;">
+												Tienda Oxxito </span>
+										</div>
+										<br>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<nav th:replace="layout/plantilla :: #mainnav-container"></nav>
+			<th:block th:include="layout/plantilla :: #mainnav-profile"></th:block>
+		</div>
+	</div>
+	<footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+</html>

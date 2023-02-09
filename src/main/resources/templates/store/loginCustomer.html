@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/plantilla :: head">
+<title>Oxxito</title>
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<span class="d-block p-1 text-white"
+		style="background-color: #163e74; font-size: 17px;">
+		<div style="width: 80px; height: 45px;"></div>
+	</span>
+
+	<div id="container"
+		class="effect aside-float aside-bright navbar-fixed footer-fixed mainnav-sm">
+
+		<div class="cls-container">
+			<div class="cls-content">
+				<div class="cls-content-sm panel">
+					<div class="media-body text-bold text-main">
+						<img width="100%" src="/imagen/Logo.png">
+					</div>
+
+					<div class="media pad-top bord-top"></div>
+
+					<div class="mar-ver pad-btm">
+
+						<h2 style="color: #474b4e">Cliente</h2>
+						<br>
+
+						<h5>Ingreso a la aplicacion</h5>
+					</div>
+
+					<div th:if=${param.error}>
+						<div class="alert alert-danger">
+							<strong>El nombre de usuario o la contraseña son
+								incorrectos.</strong>
+						</div>
+					</div>
+
+					<form method="POST" th:action="@{/login}">
+						<input type="hidden" id="lat" name="lat"> <input
+							type="hidden" id="long" name="long"> <input type="hidden"
+							name="_token" value="{{ csrf_token() }}">
+
+						<div class="form-group">
+							<input name="username" type="text" id="username"
+								class="form-control" placeholder="Cliente">
+						</div>
+						<br>
+						<div class="form-group">
+							<input name="password" id="password" type="password"
+								class="form-control" placeholder="Contraseña"
+								onCopy="return false" onDrag="return false"
+								onDrop="return false" onPaste="return false">
+						</div>
+						<br>
+						<button class="btn btn-sacmex btn-lg btn-block text-white"
+							type="submit"
+							style="background-color: #163f74e0; font-size: 18px; border-radius: 5px;">Iniciar
+							sesión</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

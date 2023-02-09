@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tienda Oxxito</title>
+<link rel="shortcut icon" th:href="@{'/imagen/icono.png'}">
+<link rel="stylesheet" href="/css/w3.css" th:href="@{/css/w3.css}">
+<link rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" href="/css/all.css" th:href="@{/css/all.css}">
+
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/tabla/datatables/datatables.min.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/PhoneResponsive/responsive.css}">
+
+
+<script type="text/javascript" src="/tabla/datatables/datatables.min.js"></script>
+<script type="text/javascript" src="/tabla/main.js"></script>
+
+<!-- moment -->
+<script src="/Lateral/momentjs/moment.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Lateral/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Lateral/nifty.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/Lateral/theme-lime.css}" />
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/nifty.min.js"></script>
+<script src="/js/jquery.dataTables.js"></script>
+
+<script src="/js/dataTables.bootstrap.js"></script>
+
+<script src="/js/dataTables.buttons.min.js"></script>
+<script src="/js/jszip.min.js"></script>
+<script src="/js/pdfmake.min.js"></script>
+<script src="/js/vfs_fonts.js"></script>
+<script src="/js/buttons.html5.min.js"></script>
+<link href="/static/select2-4.0.1/css/select2.min.css"
+	th:href="@{/select2-4.0.1/css/select2.min.css}" rel="stylesheet">
+<script src="/select2-4.0.1/js/select2.min.js"></script>
+
+<script type="text/javascript">
+	var idleState = false;
+	var idleTimer = null;
+</script>
+
+<script>
+	function myFunction(id) {
+		var x = document.getElementById(id);
+		if (x.className.indexOf("w3-show") == -1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
+</script>
+</head>
+
+<body>
+	<!--NAVBAR-->
+	<!--===================================================-->
+	<header id="navbar">
+		<div id="navbar-container" class="boxed">
+			<div class="navbar-header">
+				<a class="navbar-brand"> </a>
+			</div>
+			<div class="navbar-content" style="margin-left: 0px">
+				<ul class="nav navbar-top-links">
+					<li class="tgl-menu-btn"><a class="mainnav-toggle"><i class="fas fa-bars"></i></a></li>
+					<li><a>
+							<h4 class="text-white">
+								Tienda Oxxito
+							</h4>
+					</a></li>
+				</ul>
+
+				<div align="right">
+					<div class="nav navbar-top-links"
+						style="width: 15%; margin-top: 11Px; background-color: #ffffff00;">
+						<a onclick="myFunction('DemoPlantilla')"
+							class="w3-button w3-block text-white" style="font-size: 15px;">
+							Usuario<span class="caret"></span>
+						</a>
+
+						<div id="DemoPlantilla" class="w3-hide w3-container">
+							<form method="POST" th:action="@{/logout}">
+								 <a style="background-color: #163e74;"
+									class=" btn dropdown-item text-white "
+									onclick="this.parentNode.submit();"><span>Cerrar
+										Sesión</span>&nbsp;&nbsp;&nbsp; <i class="fa fa-power-off"
+									aria-hidden="true"></i></a>
+							</form>
+						</div>
+
+					</div>
+
+
+				</div>
+				<ul class="nav navbar-top-links"></ul>
+			</div>
+		</div>
+	</header>
+
+	<nav id="mainnav-container">
+		<div id="mainnav">
+			<div id="mainnav-menu-wrap">
+				<div class="nano has-scrollbar">
+					<div class="nano-content" tabindex="0" style="right: -15px;">
+						<!--Profile Widget-->
+						<!--================================-->
+						<div id="mainnav-profile" class="mainnav-profile"></div>
+						<ul id="mainnav-menu" class="list-group">
+						
+							<li>
+								<a th:href="@{/}">
+									<i class="fa fa-home"></i>
+									<span class="menu-title"> Inicio </span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</body>
+
+<div th:fragment="footer" id="footer" class="footer">
+	<footer class="text-center" style="background-color: #fcf8f8d7;">
+		<div class="containter" id="footer">
+			<p>
+				<span><b>User:</b><span sec:authentication="name">Usuario
+						que hizo login</span> </span>
+			<p>© 2023/Esthefania Lozano Alvarez/</p>
+
+
+		</div>
+	</footer>
+</div>
+</html>
