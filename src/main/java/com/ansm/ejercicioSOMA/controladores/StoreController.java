@@ -72,4 +72,8 @@ public class StoreController {
 	public String getHistory(Model modelo) {
 		return "store/getHistory";
 	}
+	@GetMapping("createSale")
+	public String createSale(Model modelo) {
+		return "store/createSale";
+	}
 }
