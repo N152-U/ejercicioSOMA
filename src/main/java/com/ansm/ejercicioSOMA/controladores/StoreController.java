@@ -52,4 +52,24 @@ public class StoreController {
 	public String storeHome(Model modelo) {
 		return "store/home";
 	}
+	@GetMapping("salesperson/view")
+	public String viewSalesperson(Model modelo) {
+		return "store/viewSalesperson";
+	}
+	@GetMapping("getStore")
+	public String getStore(Model modelo) {
+		return "store/getStore";
+	}
+	@GetMapping("getDealers")
+	public String getDealers(Model modelo) {
+		return "store/getDealers";
+	}
+	@GetMapping("getCustomers")
+	public String getCustomer(Model modelo) {
+		return "store/getCustomers";
+	}
+	@GetMapping("getHistory")
+	public String getHistory(Model modelo) {
+		return "store/getHistory";
+	}
 }
